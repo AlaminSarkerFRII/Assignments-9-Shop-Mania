@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const UseReview = () => {
   const [reviewsData, setReviewsData] = useState([]);
@@ -7,13 +7,9 @@ const UseReview = () => {
     fetch("user.json")
       .then((res) => res.json())
       .then((data) => setReviewsData(data));
-  }, []);
+  }, [reviewsData]);
 
-  return (
-    <div>
-      <h2>custom hooks</h2>
-    </div>
-  );
+  return [reviewsData, setReviewsData];
 };
 
 export default UseReview;

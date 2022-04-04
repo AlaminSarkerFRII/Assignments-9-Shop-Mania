@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import BakgroundImage from "../../assets/Images/Background.jpg";
 import { useNavigate } from "react-router-dom";
+import useReview from "../hooks/useReview";
+import { AiTwotoneStar } from "react-icons/ai";
 
 const Home = () => {
   //custer reviews data
-  const [reviewsData, setReviewsData] = useState([]);
+  const [reviewsData, setReviewsData] = useReview([]);
 
-  useEffect(() => {
-    fetch("user.json")
-      .then((res) => res.json())
-      .then((data) => setReviewsData(data.slice(0, 3)));
-  }, []);
+  // useEffect(() => {
+  //   fetch("user.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setReviewsData(data.slice(0, 3)));
+  // }, []);
 
-  console.log(reviewsData);
+  // console.log(reviewsData);
 
   //customer reviews
   const navigate = useNavigate();
@@ -49,27 +51,30 @@ const Home = () => {
         <h2 className="text-5xl uppercase hover:text-pink-700">
           Customer Reviews
         </h2>
-        <div className="user-container py-10 flex items-center justify-center w-full mx-auto">
-          {reviewsData.map((review) => (
-            <p
-              review={review}
-              className="max-w-sm rounded overflow-hidden shadow-lg px-7 mx-10 "
-            >
-              <div className="text-center">
-                <h2>{review.body}</h2>
-                <div>
-                  <img
-                    className="text-center w-2/5 mx-auto rounded-full p-6"
-                    src={review.thumbnail}
-                    alt=""
-                  />
-                </div>
-                <div className="font-semibold">
-                  <p className=""> Name :{review.name}</p>
-                  <p className="pb-10"> Title :{review.title}</p>
+        <div className="user-container flex items-center justify-center">
+          {reviewsData.slice(0, 3).map((review) => (
+            <div className="flex">
+              <div className="rounded-lg shadow-lg bg-white max-w-sm mr-6 px-3 ">
+                <img
+                  className=" w-2/5 mx-auto rounded-full p-6"
+                  src={review.thumbnail}
+                  alt=""
+                />
+                <div className="p-6">
+                  <h5 className="text-gray-900 text-xl font-medium mb-2">
+                    {review.name}
+                  </h5>
+                  <div className="flex justify-center mb-2 mx-auto">
+                    <AiTwotoneStar className="text-warning" />
+                    <AiTwotoneStar />
+                    <AiTwotoneStar />
+                  </div>
+                  <p className="text-gray-700 text-base mb-4">
+                    Feedback: {review.body}
+                  </p>
                 </div>
               </div>
-            </p>
+            </div>
           ))}
         </div>
         <div>

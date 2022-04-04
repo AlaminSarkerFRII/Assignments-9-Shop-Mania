@@ -3,14 +3,14 @@ import UseReview from "../hooks/useReview";
 import { AiTwotoneStar } from "react-icons/ai";
 
 const Reviews = () => {
-  // const { name, id, title, image } = props.review;
+  // const { name, id, title, thumbnail } = props.review;
 
   const [reviewsData, setrRevieswDat] = UseReview();
 
   return (
     <div className="user-container grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 items-center justify-center  mt-10 mb-10">
       {reviewsData.map((review) => (
-        <div className="flex ">
+        <div className="flex">
           <div className="rounded-lg shadow-lg bg-white max-w-sm mx-auto px-3 ">
             <img
               className=" w-2/5 mx-auto rounded-full p-6"

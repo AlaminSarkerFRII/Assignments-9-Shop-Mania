@@ -3,6 +3,7 @@ import "./App.css";
 import About from "./Components/About/About";
 import Blog from "./Components/Blog/Blog";
 import DashBoard from "./Components/DashBoard/DashBoard";
+import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import LogIn from "./Components/LogIn/LogIn";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
+      <Footer></Footer>
     </>
   );
 }

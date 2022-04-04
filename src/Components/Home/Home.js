@@ -52,18 +52,17 @@ const Home = () => {
                   alt=""
                 />
                 <div className="p-6">
-                  <h5 className="text-gray-900 text-xl font-medium mb-2">
+                  <h5 className="text-gray-900 text-xl font-bold mb-2">
                     {review.name}
                   </h5>
-                  <div className="flex justify-center mb-2 mx-auto">
+                  <div className="flex justify-center items-center font-bold mb-2 mx-auto">
+                    <p>Ratting : </p>
                     <AiTwotoneStar className="text-orange-500" />
                     <AiTwotoneStar className="text-orange-500" />
                     <AiTwotoneStar className="text-orange-500" />
                     <AiTwotoneStar className="text-orange-200" />
                   </div>
-                  <p className="text-gray-700 text-base mb-4">
-                    Feedback: {review.body}
-                  </p>
+                  <p className="text-gray-700 text-2xl mb-4 ">{review.body}</p>
                 </div>
               </div>
             </div>

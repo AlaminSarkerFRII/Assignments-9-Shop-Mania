@@ -1,14 +1,12 @@
 import React, { PureComponent } from "react";
 import {
-  BarChart,
-  Bar,
-  Cell,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -50,17 +48,17 @@ const data = [
   },
 ];
 
-const BarCharts = () => {
+const LineCharts = () => {
   return (
     <div>
-      <BarChart
+      <LineChart
         width={500}
         height={300}
         data={data}
         margin={{
           top: 5,
-          right: 20,
-          left: 10,
+          right: 30,
+          left: 20,
           bottom: 5,
         }}
       >
@@ -69,12 +67,12 @@ const BarCharts = () => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="month" fill="#8884d8" />
-        <Bar dataKey="sell" fill="#8884d8" />
-        <Bar dataKey="investment" fill="#8884d8" />
-      </BarChart>
+        <Line type="monotone" dataKey="month" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="investment" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="sell" activeDot={{ r: 8 }} />
+      </LineChart>
     </div>
   );
 };
 
-export default BarCharts;
+export default LineCharts;
